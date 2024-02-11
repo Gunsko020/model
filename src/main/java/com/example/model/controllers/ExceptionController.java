@@ -15,7 +15,6 @@ public class ExceptionController {
 
         return new ResponseEntity<>("Deze tv is niet gevonden", HttpStatus.NOT_FOUND);
 
-
     }
 
     @ExceptionHandler(value = TelevisionNameTooLongException.class)
