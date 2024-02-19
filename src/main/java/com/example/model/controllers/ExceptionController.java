@@ -13,7 +13,7 @@ public class ExceptionController {
     @ExceptionHandler(value = RecordNotFoundException.class)
     public ResponseEntity<String> exception(RecordNotFoundException exception) {
 
-        return new ResponseEntity<>("Deze tv is niet gevonden", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
 
     }
 

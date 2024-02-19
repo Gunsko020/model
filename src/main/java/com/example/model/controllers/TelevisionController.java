@@ -28,11 +28,16 @@ public class TelevisionController {
         return ResponseEntity.ok(televisionService.getAllTelevisions());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Television> getTelevision(@PathVariable Long id){
+        televisionService.getTelevision(id);
+        return ResponseEntity.ok(televisionService.getTelevision(id));
+    }
+
     @PostMapping
     public ResponseEntity <Television> saveTelevision(@RequestBody Television television){
         return ResponseEntity.status(HttpStatus.CREATED).body(televisionService.saveTelevision(television));
     }
-
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteTelevision(@PathVariable Long id){
