@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/televisions")
 public class TelevisionController {
 
     private final TelevisionService televisionService;
@@ -23,29 +22,29 @@ public class TelevisionController {
 
 
 
-    @GetMapping
+    @GetMapping("/televisions")
     public ResponseEntity<List<Television>> getAllTelevisions(){
         return ResponseEntity.ok(televisionService.getAllTelevisions());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("televisions/{id}")
     public ResponseEntity<Television> getTelevision(@PathVariable Long id){
         televisionService.getTelevision(id);
         return ResponseEntity.ok(televisionService.getTelevision(id));
     }
 
-    @PostMapping
+    @PostMapping("/televisions")
     public ResponseEntity <Television> saveTelevision(@RequestBody Television television){
         return ResponseEntity.status(HttpStatus.CREATED).body(televisionService.saveTelevision(television));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("televisions/{id}")
     public ResponseEntity<Void> deleteTelevision(@PathVariable Long id){
         televisionService.deleteTelevision(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("televisions/{id}")
     public ResponseEntity <Television> updateTelevision(@PathVariable Long id, @RequestBody Television newTelevision){
 
         Optional<Television> television = televisionService.getTelevisionById(id);
