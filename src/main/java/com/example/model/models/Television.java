@@ -13,7 +13,6 @@ public class Television {
     private String type;
     private String brand;
 
-    @Column(unique = false,nullable = false)
     private String name;
     private Double price;
     private Double availableSize;

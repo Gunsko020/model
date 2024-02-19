@@ -35,7 +35,7 @@ public class TelevisionController {
 
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteTelevision(@PathVariable Long id){
+    public ResponseEntity<Void> deleteTelevision(@PathVariable Long id){
         televisionService.deleteTelevision(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
