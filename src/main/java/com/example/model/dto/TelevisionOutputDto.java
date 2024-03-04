@@ -18,8 +18,6 @@ public class TelevisionOutputDto {
     private Boolean hdr;
     private Boolean bluetooth;
     private Boolean ambiLight;
-    private Integer originalStock;
-    private Integer sold;
 
     public Long getId() {
         return id;
@@ -141,26 +139,12 @@ public class TelevisionOutputDto {
         this.ambiLight = ambiLight;
     }
 
-    public Integer getOriginalStock() {
-        return originalStock;
-    }
 
-    public void setOriginalStock(Integer originalStock) {
-        this.originalStock = originalStock;
-    }
-
-    public Integer getSold() {
-        return sold;
-    }
-
-    public void setSold(Integer sold) {
-        this.sold = sold;
-    }
 
     public TelevisionOutputDto() {
     }
 
-    public TelevisionOutputDto(Long id, String type, String brand, String name, Double price, Double availableSize, Double refreshRate, String screenType, String screenQuality, Boolean smartTv, Boolean wifi, Boolean voiceControl, Boolean hdr, Boolean bluetooth, Boolean ambiLight, Integer originalStock, Integer sold) {
+    public TelevisionOutputDto(Long id, String type, String brand, String name, Double price, Double availableSize, Double refreshRate, String screenType, String screenQuality, Boolean smartTv, Boolean wifi, Boolean voiceControl, Boolean hdr, Boolean bluetooth, Boolean ambiLight ) {
         this.id = id;
         this.type = type;
         this.brand = brand;
@@ -176,8 +160,7 @@ public class TelevisionOutputDto {
         this.hdr = hdr;
         this.bluetooth = bluetooth;
         this.ambiLight = ambiLight;
-        this.originalStock = originalStock;
-        this.sold = sold;
+
     }
 
 

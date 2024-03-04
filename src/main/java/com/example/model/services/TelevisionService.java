@@ -6,6 +6,7 @@ import com.example.model.exceptions.RecordNotFoundException;
 import com.example.model.models.Television;
 import com.example.model.repositories.TelevisionRepository;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -50,7 +51,7 @@ public class TelevisionService {
 
     }
 
-    public void saveTelevision(TelevisionInputDto dto) {
+    public Television saveTelevision(TelevisionInputDto dto) {
         Television television = new Television();
         television.setBrand(dto.getBrand());
         television.setName(dto.getName());
@@ -67,10 +68,38 @@ public class TelevisionService {
         television.setBluetooth(dto.getBluetooth());
         television.setAmbiLight(dto.getAmbiLight());
         television.setOriginalStock(dto.getOriginalStock());
-        televisionRepository.save(television);
+        return televisionRepository.save(television);
     }
 
+    public TelevisionOutputDto updateTelevision(Long id, TelevisionInputDto newTelevision){
+        Optional<Television> television = televisionRepository.findById(id);
 
+        if (television.isEmpty()){
+            throw new RuntimeException("Television not found");
+        }
+        else {
+            Television updatedTelevision = television.get();
+            updatedTelevision.setBrand(newTelevision.getBrand());
+            updatedTelevision.setPrice(newTelevision.getPrice());
+            updatedTelevision.setAvailableSize(newTelevision.getAvailableSize());
+            updatedTelevision.setRefreshRate(newTelevision.getRefreshRate());
+            updatedTelevision.setScreenType(newTelevision.getScreenType());
+            updatedTelevision.setType(newTelevision.getType());
+            updatedTelevision.setSold(newTelevision.getSold());
+            updatedTelevision.setName(newTelevision.getName());
+            updatedTelevision.setAmbiLight(newTelevision.getAmbiLight());
+            updatedTelevision.setSmartTv(newTelevision.getSmartTv());
+            updatedTelevision.setBluetooth(newTelevision.getBluetooth());
+            updatedTelevision.setHdr(newTelevision.getHdr());
+            updatedTelevision.setOriginalStock(newTelevision.getOriginalStock());
+            updatedTelevision.setWifi(newTelevision.getWifi());
+            updatedTelevision.setVoiceControl(newTelevision.getVoiceControl());
+            updatedTelevision.setScreenQuality(newTelevision.getScreenQuality());
+            Television returnedTelevision = televisionRepository.save(updatedTelevision);
+            return toTelevisionDto(returnedTelevision);
+        }
+
+    }
 
     public void deleteTelevision(Long id) {
         televisionRepository.deleteById(id);
