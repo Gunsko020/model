@@ -5,6 +5,7 @@ import com.example.model.exceptions.RecordNotFoundException;
 import com.example.model.exceptions.TelevisionNameTooLongException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -28,6 +29,11 @@ public class ExceptionController {
     @ExceptionHandler(value = IndexOutOfBoundsException.class)
     public ResponseEntity<String> exception(IndexOutOfBoundsException exception) {
         return new ResponseEntity<>("Dit bestaat niet in de database", HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(value = MethodArgumentNotValidException.class)
+    public ResponseEntity<String> exception(MethodArgumentNotValidException exception) {
+        return new ResponseEntity<>("Niet alle waardes zijn ingevuld,vul deze graag in om door te gaan", HttpStatus.BAD_REQUEST);
     }
 
 }
