@@ -52,23 +52,8 @@ public class TelevisionService {
     }
 
     public Television saveTelevision(TelevisionInputDto dto) {
-        Television television = new Television();
-        television.setBrand(dto.getBrand());
-        television.setName(dto.getName());
-        television.setPrice(dto.getPrice());
-        television.setAvailableSize(dto.getAvailableSize());
-        television.setRefreshRate(dto.getRefreshRate());
-        television.setType(dto.getType());
-        television.setScreenType(dto.getScreenType());
-        television.setScreenQuality(dto.getScreenQuality());
-        television.setSmartTv(dto.getSmartTv());
-        television.setWifi(dto.getWifi());
-        television.setVoiceControl(dto.getVoiceControl());
-        television.setHdr(dto.getHdr());
-        television.setBluetooth(dto.getBluetooth());
-        television.setAmbiLight(dto.getAmbiLight());
-        television.setOriginalStock(dto.getOriginalStock());
-        return televisionRepository.save(television);
+
+        return televisionRepository.save(toTelevision(dto));
     }
 
     public TelevisionOutputDto updateTelevision(Long id, TelevisionInputDto newTelevision){
@@ -129,48 +114,30 @@ public class TelevisionService {
         return dto;
     }
 
-//    public static TelevisionOutputDto toTelevisionDto(Television television) {
-//        TelevisionOutputDto dto = new TelevisionOutputDto();
-//        dto.setType(television.getType());
-//        dto.setBrand(television.getBrand());
-//        dto.setName(television.getName());
-//        dto.setPrice(television.getPrice());
-//        dto.setAvailableSize(television.getAvailableSize());
-//        dto.setRefreshRate(television.getRefreshRate());
-//        dto.setScreenType(television.getScreenType());
-//        dto.setScreenQuality(television.getScreenQuality());
-//        dto.setSmartTv(television.getSmartTv());
-//        dto.setWifi(television.getWifi());
-//        dto.setVoiceControl(television.getVoiceControl());
-//        dto.setHdr(television.getHdr());
-//        dto.setBluetooth(television.getBluetooth());
-//        dto.setAmbiLight(television.getAmbiLight());
-//        dto.setOriginalStock(television.getOriginalStock());
-//        dto.setSold(television.getSold());
-//        return dto;
-//    }
-//
-//    public Television toTelevision(TelevisionInputDto dto) {
-//        Television television = new Television();
-//        television.setType(dto.getType());
-//        television.setBrand(dto.getBrand());
-//        television.setName(dto.getName());
-//        television.setPrice(dto.getPrice());
-//        television.setAvailableSize(dto.getAvailableSize());
-//        television.setRefreshRate(dto.getRefreshRate());
-//        television.setScreenType(dto.getScreenType());
-//        television.setScreenQuality(dto.getScreenQuality());
-//        television.setSmartTv(dto.getSmartTv());
-//        television.setWifi(dto.getWifi());
-//        television.setVoiceControl(dto.getVoiceControl());
-//        television.setHdr(dto.getHdr());
-//        television.setBluetooth(dto.getBluetooth());
-//        television.setAmbiLight(dto.getAmbiLight());
-//        television.setOriginalStock(dto.getOriginalStock());
-//        television.setSold(dto.getSold());
-//        return television;
-//
-//    }
+
+    public Television toTelevision(TelevisionInputDto dto) {
+
+        Television television = new Television();
+        television.setId(dto.getId());
+        television.setType(dto.getType());
+        television.setBrand(dto.getBrand());
+        television.setName(dto.getName());
+        television.setPrice(dto.getPrice());
+        television.setAvailableSize(dto.getAvailableSize());
+        television.setRefreshRate(dto.getRefreshRate());
+        television.setScreenType(dto.getScreenType());
+        television.setScreenQuality(dto.getScreenQuality());
+        television.setSmartTv(dto.getSmartTv());
+        television.setWifi(dto.getWifi());
+        television.setVoiceControl(dto.getVoiceControl());
+        television.setHdr(dto.getHdr());
+        television.setBluetooth(dto.getBluetooth());
+        television.setAmbiLight(dto.getAmbiLight());
+        television.setOriginalStock(dto.getOriginalStock());
+        television.setSold(dto.getSold());
+        return television;
+
+    }
 
 
 

@@ -24,7 +24,6 @@ public class TelevisionController {
     }
 
 
-
     @GetMapping("/televisions")
     public ResponseEntity<List<TelevisionOutputDto>> getAllTelevisions(){
         return ResponseEntity.ok(televisionService.getAllTelevisions());

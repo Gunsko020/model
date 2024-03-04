@@ -182,4 +182,7 @@ public class Television {
         this.originalStock = originalStock;
         this.sold = sold;
     }
+
+    public void setId(Long id) {
+    }
 }
