@@ -1,6 +1,6 @@
 package com.example.model.dto;
 
-public class TelevisionDto {
+public class RequestTelevisionDto {
 
     private Long id;
     private String type;
@@ -20,6 +20,7 @@ public class TelevisionDto {
     private Boolean ambiLight;
     private Integer originalStock;
     private Integer sold;
+
     public Long getId() {
         return id;
     }
@@ -152,11 +153,10 @@ public class TelevisionDto {
         this.sold = sold;
     }
 
-    public TelevisionDto() {
-
+    public RequestTelevisionDto() {
     }
 
-    public TelevisionDto(Long id, String type, String brand, String name, Double price, Double availableSize, Double refreshRate, String screenType, String screenQuality, Boolean smartTv, Boolean wifi, Boolean voiceControl, Boolean hdr, Boolean bluetooth, Boolean ambiLight, Integer originalStock, Integer sold) {
+    public RequestTelevisionDto(Long id, String type, String brand, String name, Double price, Double availableSize, Double refreshRate, String screenType, String screenQuality, Boolean smartTv, Boolean wifi, Boolean voiceControl, Boolean hdr, Boolean bluetooth, Boolean ambiLight, Integer originalStock, Integer sold) {
         this.id = id;
         this.type = type;
         this.brand = brand;
